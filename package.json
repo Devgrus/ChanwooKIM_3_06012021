@@ -1,0 +1,19 @@
+{
+  "name": "chanwookim_3_06012021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devgrus/ChanwooKIM_3_06012021.git"
+  },
+  "author": "Chanwoo KIM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devgrus/ChanwooKIM_3_06012021/issues"
+  },
+  "homepage": "https://github.com/Devgrus/ChanwooKIM_3_06012021#readme"
+}
