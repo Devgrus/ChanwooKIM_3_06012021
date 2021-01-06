@@ -1,3 +1,9 @@
-
+@import "../icon/all.css";
+.salt {
+  margin: auto;
+}
+.salt i {
+  color: pink;
+}
 
 /*# sourceMappingURL=style.css.map */
