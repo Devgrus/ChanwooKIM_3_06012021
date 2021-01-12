@@ -223,9 +223,21 @@ header .back {
   height: 100%;
   background-color: #99E2D0;
 }
-.container-menu .menu__card__add i {
+.container-menu .menu__card__add > i {
   color: #fff;
   font-size: 1.2em;
+}
+.container-menu .menu__card :hover + .menu__card__add {
+  transform: translateX(-3.8em);
+  transition: all 600ms;
+}
+.container-menu .menu__card :hover + .menu__card__add > i {
+  transform: rotate(360deg);
+  transition: all 400ms 200ms;
+}
+.container-menu .menu__card :not(:hover) + .menu__card__add {
+  transform: translateX(3.8em);
+  transition: all 600ms;
 }
 .container-menu .btn {
   align-self: center;

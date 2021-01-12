@@ -248,10 +248,28 @@ header {
                 width: 3.8em;
                 height: 100%;
                 background-color: $color-tertiary;
-    
-                i {
+
+                & > i {
                     color: $color-white;
                     font-size: 1.2em;
+                }
+            }
+
+            :hover {
+                & + .menu__card__add {
+                    transform: translateX(-3.8em);
+                    transition: all 600ms;
+                    & > i {
+                        transform: rotate(360deg);
+                        transition: all 400ms 200ms;
+                    }
+                }
+            }
+
+            :not(:hover) {
+                & + .menu__card__add {
+                    transform: translateX(3.8em);
+                    transition: all 600ms;
                 }
             }
         }
