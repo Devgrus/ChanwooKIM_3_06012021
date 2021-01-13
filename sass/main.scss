@@ -7,6 +7,7 @@ $color-tertiary: #99E2D0;
 $color-white: #fff;
 $color-gray: #f6f6f6;
 $color-gray-font: #353535;
+$color-black: #000000;
 /*<------------------------ Fonctions ------------------------>*/
 @keyframes card-up {
     0% {
@@ -17,6 +18,30 @@ $color-gray-font: #353535;
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes loading-end {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+    100% {
+        z-index: -99;
+        opacity: 0;
     }
 }
 /*<------------------------ Mixins ------------------------>*/
@@ -36,7 +61,8 @@ $color-gray-font: #353535;
 @mixin button($width: 11.5em) {
     color: $color-white;
     font-size: 1em;
-    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     background: linear-gradient($color-secondary, $color-primary);
     border: none;
     width: $width;
@@ -56,13 +82,36 @@ $color-gray-font: #353535;
 
 /*<------------------------ Composant ------------------------>*/
 /*--- bouton pour revenir en arrière ---*/
-
+a {
+    text-decoration :none;
+}
 /*button*/
 .btn {
+    position: relative;
     @include button;
     @include main-box-shadow(15%);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    z-index: 1;
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: -1;
+        border: none;
+        border-radius: 1.5em;
+        background: linear-gradient(lighten($color-secondary, 5), lighten($color-primary, 5));
+        @include main-box-shadow(20%);
+        transition: opacity 250ms;
+    }
 }
 /*heart*/
 .heart {
@@ -75,10 +124,9 @@ $color-gray-font: #353535;
         left: 0;
         opacity: 1;
         z-index: 2;
+        transition: opacity 800ms ease-in-out;
         &:hover {
             opacity: 0;
-            transition: opacity 800ms ease-in-out;
-
             & + .fas {
                 opacity: 1;
                 transition: opacity 800ms ease-in-out;
@@ -303,6 +351,10 @@ footer {
                 margin-right: 0.3em;
                 width: 1.5em;
             }
+
+            & > a {
+                color: $color-white;
+            }
         }
     }
 }
@@ -325,21 +377,34 @@ footer {
     width: 100%;
     height: 100vh;
     background-color: $color-white;
-    opacity: 0;
+    opacity: 1;
+    z-index: 99;
+    animation: loading-end 1000ms 2000ms ease-in-out forwards;
     
     &__icon {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         align-content: space-between;
-        width: 280px;
-        height: 280px;
+        width: 20vh;
+        height: 20vh;
+        
     }
 
     &__block {
-        width: 130px;
-        height: 130px;
+        width: 45%;
+        height: 45%;
         background-color: $color-primary;
+        opacity: 0.5;
+
+        &:nth-child(3) {
+            order: 4;
+        }
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation: loading 1000ms 250ms*$i ease-in-out infinite;
+            }
+        }
     }
 }
 
@@ -362,20 +427,23 @@ footer {
 .presentation {
     background-color: $color-gray;
     text-align: center;
+    padding: 1em 0 3em 0;
     & h1 {
         @include main-heading-size;
         margin: 1em 2em 0 2em;
     }
-    padding: 1em 0 1em 0;
+    
 
     & p {
         margin: 1em;
         font-size: 1.1em;
+        font-weight: 300;
         color: $color-gray-font;
     }
 
     & .btn {
         @include button(14em);
+        margin-top: 1em;
     }
 }
 
@@ -401,7 +469,13 @@ footer {
         border-radius: 1.3em 1.3em;
         margin: 0 0 1.2em 1em;
         @include main-box-shadow;
-        &__num {
+        &:nth-last-child(1) {
+            background-color: change-color($color-primary, $saturation: 100%, $lightness: 96%);
+            & i {
+                color: $color-primary;
+            }
+        }
+        & > div {
             position: absolute;
             display: flex;
             justify-content: center;
@@ -414,11 +488,13 @@ footer {
             font-size: 0.8em;
             border-radius: 12.5px;
         }
-
         & i {
             margin: 0 1.4em 0 1.8em;
-            font-size: 1.2em;
             color: darken($color-gray, 44%);
+            
+            &::before {
+                font-size: 1.1em;
+            }
         }
         & h3 {
             font-size: 1em;
@@ -429,16 +505,27 @@ footer {
 .resto {
     background-color: $color-gray;
     @include content-padding;
-
+    & > div {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
     &__card {
-        max-width: 343px;
+        position: relative;
+        width: 343px;
         height: 16em;
         background-color: $color-white;
         @include main-box-shadow;
         border-radius: 1em 1em;
         overflow: hidden;
-
         margin-bottom: 1.2em;
+        cursor: pointer;
+
+        & > a {
+            display: block;
+            color: $color-black;
+        }
+
         &__img {
             position: relative;
             display: flex;
@@ -462,7 +549,7 @@ footer {
             width: 5.5em;
             height: 2em;
             background-color: $color-tertiary;
-            color: darken($color-tertiary, 40%);
+            color: change-color($color-tertiary, $saturation: 100%, $lightness: 26%);
             font-size: 0.9em;
             font-weight: 500;
             border-radius: 2px 2px;
@@ -480,12 +567,12 @@ footer {
             & p {
                 margin: 0 0 1em 0;
             }
+        }
 
-            & .heart {
-                position: absolute; 
-                top: 0.4em;
-                right: 2em;
-            }
+        & .heart {
+            position: absolute; 
+            bottom: 2.3em;
+            right: 2em;
         }
         
     }
