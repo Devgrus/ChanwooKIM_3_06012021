@@ -105,7 +105,6 @@ a {
   z-index: 1;
   background: linear-gradient(to bottom, #9356DC 0%, #FF79DA 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
 }
 
@@ -319,7 +318,8 @@ header .back {
   font-weight: 400;
   margin-bottom: 1.5em;
 }
-.container-menu h2 > div {
+.container-menu h2 > span {
+  display: block;
   position: absolute;
   top: 1.45em;
   width: 2.5em;
@@ -399,7 +399,7 @@ header .back {
   text-overflow: ellipsis;
 }
 .menu__card__text div span:nth-child(2) {
-  min-width: 20%;
+  min-width: 10%;
   text-align: right;
   margin-right: 2em;
 }
@@ -419,7 +419,7 @@ header .back {
   font-size: 1.2em;
 }
 .menu__card:hover .menu__card__text {
-  margin-right: 3.8em;
+  padding-right: 3.8em;
   transition: all 600ms ease-in-out;
 }
 .menu__card:hover .menu__card__add {
