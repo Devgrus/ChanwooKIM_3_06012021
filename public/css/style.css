@@ -481,7 +481,7 @@ footer ul li > a {
 /*-------- page_acceuil.html --------*/
 /*--- loading ---*/
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   display: flex;
