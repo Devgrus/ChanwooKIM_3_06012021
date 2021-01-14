@@ -64,59 +64,9 @@
   transition: opacity 250ms;
 }
 
-/*.heart {
-    position: relative;
-    font-size: 1.5em;
-
-    & .far {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 1;
-        z-index: 1;
-        transition: opacity 800ms ease-in-out;
-        &:hover {
-            opacity: 0;
-            & + .fas {
-                opacity: 1;
-                transition: opacity 800ms ease-in-out;
-            }
-        }
-    }
-
-    & .fas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        z-index: -1;
-        background: linear-gradient(to bottom, $color-primary 0%,$color-secondary 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color:transparent;
-    }
-}*/
 .heart {
   position: relative;
   font-size: 1.5em;
-  width: 24px;
-  height: 24px;
-}
-.heart:hover i:nth-child(1) {
-  opacity: 0;
-  transition: all 800ms ease-in-out;
-}
-.heart:hover i:nth-child(2) {
-  opacity: 1;
-  transition: all 800ms ease-in-out;
-}
-.heart:not(:hover) i:nth-child(1) {
-  opacity: 1;
-  transition: all 800ms ease-in-out;
-}
-.heart:not(:hover) i:nth-child(2) {
-  opacity: 0;
-  transition: all 800ms ease-in-out;
 }
 .heart .far {
   position: absolute;
@@ -124,6 +74,14 @@
   left: 0;
   opacity: 1;
   z-index: 1;
+  transition: opacity 800ms ease-in-out;
+}
+.heart .far:hover {
+  opacity: 0;
+}
+.heart .far:hover + .fas {
+  opacity: 1;
+  transition: opacity 800ms ease-in-out;
 }
 .heart .fas {
   position: absolute;
