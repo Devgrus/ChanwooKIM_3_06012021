@@ -1,0 +1,29 @@
+footer {
+    @include content-padding(0.5em, 1em);
+    background-color: darken($color-gray, 75.5%);
+    color: $color-white;
+    & h2 {
+        font-family: 'Shrikhand', cursive;
+        font-size: 1.1em;
+        font-weight: 100;
+    }
+    & ul {
+        padding: 0;
+        list-style: none;
+        font-size: 0.95em;
+
+        & li {
+            margin-bottom: 0.4em;
+
+            & i {
+                font-size: 0.7em;
+                margin-right: 0.3em;
+                width: 1.5em;
+            }
+
+            & > a {
+                color: $color-white;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.presentation {
+    background-color: $color-gray;
+    text-align: center;
+    padding: 1em 0 3em 0;
+    & h1 {
+        @include main-heading-size;
+        margin: 1em 2em 0 2em;
+    }
+    
+
+    & p {
+        margin: 1em;
+        font-size: 1.1em;
+        font-weight: 300;
+        color: $color-gray-font;
+    }
+
+    & .btn {
+        @include button(14em);
+        margin-top: 1em;
+    }
+}

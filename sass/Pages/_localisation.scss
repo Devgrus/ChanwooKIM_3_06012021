@@ -1,0 +1,15 @@
+.localisation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: darken($color-gray, 4%);
+    box-shadow: 0 3px 2px 0 darken($color-gray, 10%) inset;
+    height: 3em;
+    font-weight: 600;
+    color: $color-gray-font;
+
+    & i {
+        margin-right: 1em;
+    }
+}

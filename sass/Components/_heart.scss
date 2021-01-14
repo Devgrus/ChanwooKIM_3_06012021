@@ -1,0 +1,32 @@
+.heart {
+    position: relative;
+    font-size: 1.5em;
+    
+    & .far {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+        transition: opacity 800ms ease-in-out;
+        &:hover {
+            opacity: 0;
+            & + .fas {
+                opacity: 1;
+                transition: opacity 800ms ease-in-out;
+            }
+        }
+    }
+
+    & .fas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: -1;
+        background: linear-gradient(to bottom, $color-primary 0%,$color-secondary 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color:transparent;
+    }
+}

@@ -1,0 +1,147 @@
+.fonctionnement {
+    display: flex;
+    flex-flow: column wrap;
+    @include content-padding;
+
+    & > div {
+        @media (min-width: 769px) {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        background-color: $color-gray;
+        width: 95%;
+        height: 4.5em;
+        border-radius: 1.3em 1.3em;
+        margin: 0 0 1.2em 1em;
+        @include main-box-shadow;
+        @media (min-width: 769px) {
+            max-width: 768px;
+        }
+        &:nth-last-child(1) {
+            background-color: change-color($color-primary, $saturation: 100%, $lightness: 96%);
+            & i {
+                color: $color-primary;
+            }
+        }
+        & > div {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: -12px;
+            width: 23px;
+            height: 23px;
+            background-color: $color-primary;
+            color: $color-white;
+            font-size: 0.8em;
+            border-radius: 12.5px;
+        }
+        & i {
+            margin: 0 1.4em 0 1.8em;
+            color: darken($color-gray, 44%);
+            
+            &::before {
+                font-size: 1.1em;
+            }
+        }
+        & h3 {
+            font-size: 1em;
+        }
+    }
+}
+
+.resto {
+    background-color: $color-gray;
+    @include content-padding;
+    & > div {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+
+        @media (min-width:768px) {
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+    }
+
+    &__card {
+        position: relative;
+        width: 343px;
+        height: 16em;
+        background-color: $color-white;
+        @include main-box-shadow;
+        border-radius: 1em 1em;
+        overflow: hidden;
+        margin-bottom: 1.2em;
+        cursor: pointer;
+        @media (min-width:768px) and (max-width: 1024px){
+            margin: 0 0.5em 2em 0.5em;
+        }
+
+        @media (min-width: 1025px) {
+            margin: 0 3em 5em 5em;
+        }
+        & > a {
+            display: block;
+            color: $color-black;
+        }
+
+        &__img {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            height: 11em;
+            & img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 3.5em;
+            }
+        }
+
+        &__new {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 1em;
+            right: 1em;
+            width: 5.5em;
+            height: 2em;
+            background-color: $color-tertiary;
+            color: change-color($color-tertiary, $saturation: 100%, $lightness: 26%);
+            font-size: 0.9em;
+            font-weight: 500;
+            border-radius: 2px 2px;
+        }
+
+        &__text {
+            position: relative;
+            margin-left: 0.8em;
+            & h3 {
+                font-size: 1.1em;
+                font-weight: 700;
+                margin: 1em 0 0.3em 0;
+            }
+
+            & p {
+                margin: 0 0 1em 0;
+            }
+        }
+
+        & .heart {
+            position: absolute; 
+            bottom: 2.3em;
+            right: 2em;
+        }
+        
+    }
+}

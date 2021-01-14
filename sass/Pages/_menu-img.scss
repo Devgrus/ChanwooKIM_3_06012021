@@ -1,0 +1,76 @@
+// Pour les images principales des sites de menus.
+
+.main-img {  
+    &--1 {
+        @include main-img-position;
+        & img {
+            position: absolute;
+            top: 0;
+            left: -1em;
+            height: auto;
+            width: 110%;
+            @media (min-width:768px) and (max-width: 1023px) {
+                top: -9em;
+            }
+            @media (min-width:1024px) {
+                top: -12em;
+            }
+        }
+        @include main-img-height;
+    }
+
+    &--2 {
+        @include main-img-position;
+        & img {
+            position: absolute;
+            top: -6em;
+            left: 0;
+            height: auto;
+            width: 100%;
+            @media (min-width:768px) and (max-width: 1023px) {
+                top: -12em;
+            }
+            @media (min-width:1024px) {
+                top: -19em;
+            }
+        }
+        @include main-img-height;
+    }
+
+    &--3 {
+        @include main-img-position;
+        & img {
+            position: absolute;
+            top: 0;
+            left: -2em;
+            height: auto;
+            width: 110%;
+            @media (min-width:768px) and (max-width: 1023px) {
+                top: -12em;
+            }
+            @media (min-width:1024px) {
+                top: -18em;
+            }
+        }
+        @include main-img-height;
+    }
+
+    &--4 {
+        @include main-img-position;
+        & img {
+            position: absolute;
+            top: 0;
+            left: -2em;
+            height: auto;
+            width: 110%;
+            @media (min-width:768px) and (max-width: 1023px) {
+                top: -12em;
+            }
+            @media (min-width:1024px) {
+                top: -12em;
+            }
+        }
+        @include main-img-height;
+        
+    }  
+}
