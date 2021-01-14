@@ -112,7 +112,7 @@ a {
 /*bouton pour revenir en arrière*/
 .back i {
   font-size: 1.2em;
-  color: black;
+  color: #000000;
 }
 
 /*<------------------------ layout ------------------------>*/
@@ -144,18 +144,141 @@ header .back {
   font-size: 2em;
 }
 
-.main-img {
+.main-img--1 {
   position: relative;
-  height: 16em;
   width: 100%;
+  height: 16em;
   overflow: hidden;
   z-index: 1;
 }
-.main-img img {
+.main-img--1 img {
   position: absolute;
+  top: 0;
+  left: -1em;
+  height: auto;
+  width: 110%;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--1 img {
+    top: -9em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--1 img {
+    top: -12em;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--1 {
+    height: 25em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--1 {
+    height: 35em;
+  }
+}
+.main-img--2 {
+  position: relative;
+  width: 100%;
+  height: 16em;
+  overflow: hidden;
+  z-index: 1;
+}
+.main-img--2 img {
+  position: absolute;
+  top: -6em;
+  left: 0;
+  height: auto;
+  width: 100%;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--2 img {
+    top: -12em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--2 img {
+    top: -19em;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--2 {
+    height: 25em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--2 {
+    height: 35em;
+  }
+}
+.main-img--3 {
+  position: relative;
+  width: 100%;
+  height: 16em;
+  overflow: hidden;
+  z-index: 1;
+}
+.main-img--3 img {
+  position: absolute;
+  top: 0;
   left: -2em;
   height: auto;
   width: 110%;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--3 img {
+    top: -12em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--3 img {
+    top: -18em;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--3 {
+    height: 25em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--3 {
+    height: 35em;
+  }
+}
+.main-img--4 {
+  position: relative;
+  width: 100%;
+  height: 16em;
+  overflow: hidden;
+  z-index: 1;
+}
+.main-img--4 img {
+  position: absolute;
+  top: 0;
+  left: -2em;
+  height: auto;
+  width: 110%;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--4 img {
+    top: -12em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--4 img {
+    top: -12em;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-img--4 {
+    height: 25em;
+  }
+}
+@media (min-width: 1024px) {
+  .main-img--4 {
+    height: 35em;
+  }
 }
 
 .block_page {
@@ -173,6 +296,7 @@ header .back {
   border-radius: 2em 2em 0 0;
 }
 .container-menu h1 {
+  width: 100%;
   font-family: "Shrikhand", cursive;
   font-size: 1.8em;
   font-weight: 300;
@@ -181,6 +305,13 @@ header .back {
   position: absolute;
   top: 1.5em;
   right: 2.5em;
+}
+@media (min-width: 1025px) {
+  .container-menu > div:nth-of-type(2) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
 }
 .container-menu h2 {
   position: relative;
@@ -200,6 +331,12 @@ header .back {
   margin: 2em 0 2em 0;
 }
 
+.menu > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 .menu__card {
   position: relative;
   display: flex;
@@ -300,6 +437,17 @@ header .back {
 .menu__card:not(:hover) .menu__card__add {
   transform: translateX(3.8em);
   transition: all 600ms ease-in-out;
+}
+@media (min-width: 769px) {
+  .menu__card {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1025px) {
+  .menu {
+    min-width: 25em;
+    margin: 0 1em 0 1em;
+  }
 }
 
 footer {
@@ -428,8 +576,15 @@ footer ul li > a {
 
 .fonctionnement {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   padding: 2em 1em 2em 1em;
+}
+@media (min-width: 769px) {
+  .fonctionnement > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
 }
 .fonctionnement__card {
   position: relative;
@@ -442,6 +597,11 @@ footer ul li > a {
   border-radius: 1.3em 1.3em;
   margin: 0 0 1.2em 1em;
   box-shadow: 0 7px 7px #e9e9e9;
+}
+@media (min-width: 769px) {
+  .fonctionnement__card {
+    max-width: 768px;
+  }
 }
 .fonctionnement__card:nth-last-child(1) {
   background-color: #f4ebff;
@@ -482,6 +642,12 @@ footer ul li > a {
   flex-flow: column wrap;
   align-items: center;
 }
+@media (min-width: 768px) {
+  .resto > div {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}
 .resto__card {
   position: relative;
   width: 343px;
@@ -492,6 +658,16 @@ footer ul li > a {
   overflow: hidden;
   margin-bottom: 1.2em;
   cursor: pointer;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .resto__card {
+    margin: 0 0.5em 2em 0.5em;
+  }
+}
+@media (min-width: 1025px) {
+  .resto__card {
+    margin: 0 3em 5em 5em;
+  }
 }
 .resto__card > a {
   display: block;
