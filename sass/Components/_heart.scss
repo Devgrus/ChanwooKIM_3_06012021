@@ -7,7 +7,7 @@
         top: 0;
         left: 0;
         opacity: 1;
-        z-index: 1;
+        z-index: 2;
         transition: opacity 800ms ease-in-out;
         &:hover {
             opacity: 0;
@@ -23,7 +23,7 @@
         top: 0;
         left: 0;
         opacity: 0;
-        z-index: -1;
+        z-index: 1;
         background: linear-gradient(to bottom, $color-primary 0%,$color-secondary 100%);
         -webkit-background-clip: text;
         background-clip: text;
