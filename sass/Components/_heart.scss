@@ -26,7 +26,6 @@
         z-index: 1;
         background: linear-gradient(to bottom, $color-primary 0%,$color-secondary 100%);
         -webkit-background-clip: text;
-        background-clip: text;
-        color:transparent;
+        -webkit-text-fill-color: transparent;
     }
 }
